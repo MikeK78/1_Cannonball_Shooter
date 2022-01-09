@@ -8,6 +8,7 @@ public class GameStart : MonoBehaviour
     void Start()
     {
         GlobalVarsStorage.isGameRunning = true;
+        //GitHub-Test-String
     }
 
     // Update is called once per frame
