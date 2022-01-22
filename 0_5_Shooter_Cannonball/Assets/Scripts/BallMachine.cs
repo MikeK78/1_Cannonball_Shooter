@@ -10,12 +10,13 @@ public class BallMachine : MonoBehaviour
     public int intCountScore = 0;
     public TextMeshProUGUI Bullets;
     public int intCountBullet = 100;
+    public Transform Fade;
 
 
     void Start()
     {
 
-        //InvokeRepeating(nameof(Shoot), 0, 2);
+        InvokeRepeating(nameof(Shoot), 0, 2);
 
     }
 
@@ -32,6 +33,8 @@ public class BallMachine : MonoBehaviour
         //    CancelInvoke(nameof(Shoot));
         //}
 
+        // Look at TargetFade
+        LookAtTarget();
 
     }
 
@@ -60,5 +63,13 @@ public class BallMachine : MonoBehaviour
         }
 
     }
+
+    private void LookAtTarget()
+    {
+        Vector3 direction = Fade.position - transform.position;
+        Quaternion rotation = Quaternion.LookRotation(direction);
+        transform.rotation = rotation;
+    }
+
 
 }
